@@ -1,0 +1,68 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system,sans-serif;
+    background-color: #f9f9f9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+}
+
+.header-left h1 {
+    font-size: 24px;
+    color: black;
+}
+
+.header-right a {
+    margin-left: 20px;
+    color: #000000;
+    text-decoration: none;
+}
+
+.header-right a:hover {
+    text-decoration: underline;
+}
+
+.faq-content {
+    margin-top: 100px;
+    width: 60%;
+    text-align: left;
+}
+
+h2 {
+    font-size: 40px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.faq-section {
+    margin-bottom: 20px;
+}
+
+.faq-section h3 {
+    font-size: 20px;
+    color: #000;
+    margin-bottom: 10px;
+}
+
+.faq-section p {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.6;
+}

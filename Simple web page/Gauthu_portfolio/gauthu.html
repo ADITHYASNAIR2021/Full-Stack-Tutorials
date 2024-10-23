@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Designer Portfolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+	<style>
+        /* Custom styles for the moving oval */
+        .navbar-container {
+            position: relative;
+            padding: 5px 10px;
+            border-radius: 9999px;
+            background-color: #1a1a1a;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .navbar-item {
+            font-family: 'Lufga', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 10px 20px;
+            position: relative;
+            z-index: 2;
+            transition: color 0.3s ease;
+        }
+
+        .navbar-item:hover {
+            color: #ff7a00;
+        }
+
+        .hover-oval {
+            position: absolute;
+            background-color: #ff7a00;
+            border-radius: 9999px;
+            transition: all 0.3s ease;
+            z-index: 1;
+            height: 40px;
+        }
+
+        .navbar-container {
+            padding: 0;
+        }
+
+        .navbar-item-wrapper {
+            display: inline-block;
+            padding: 0 5px;
+        }
+
+        .navbar-item-wrapper:hover .hover-oval {
+            width: 100%;
+            left: 0;
+        }
+
+        .navbar-item-wrapper:nth-child(1):hover .hover-oval {
+            width: 100%;
+            left: 0;
+        }
+
+        .navbar-item-wrapper:nth-child(2):hover .hover-oval {
+            width: 100%;
+            left: calc(100% / 7 * 1);
+        }
+
+        .navbar-item-wrapper:nth-child(3):hover .hover-oval {
+            width: 100%;
+            left: calc(100% / 7 * 2);
+        }
+
+        .navbar-item-wrapper:nth-child(4):hover .hover-oval {
+            width: 100%;
+            left: calc(100% / 7 * 3);
+        }
+
+        .navbar-item-wrapper:nth-child(5):hover .hover-oval {
+            width: 100%;
+            left: calc(100% / 7 * 4);
+        }
+
+        .navbar-item-wrapper:nth-child(6):hover .hover-oval {
+            width: 100%;
+            left: calc(100% / 7 * 5);
+        }
+
+        .navbar-item-wrapper:nth-child(7):hover .hover-oval {
+            width: 100%;
+            left: calc(100% / 7 * 6);
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-900">
+
+    <!-- Navbar -->
+	<nav class="flex justify-center items-center py-4">
+        <div class="navbar-container w-full max-w-5xl rounded-full">
+            <div class="navbar-item-wrapper">
+                <div class="hover-oval w-24"></div>
+                <a href="#home" class="navbar-item text-center block">Home</a>
+            </div>
+            <div class="navbar-item-wrapper">
+                <div class="hover-oval w-24"></div>
+                <a href="#about" class="navbar-item text-center block">About</a>
+            </div>
+            <div class="navbar-item-wrapper">
+                <div class="hover-oval w-24"></div>
+                <a href="#services" class="navbar-item text-center block">Service</a>
+            </div>
+            <div class="navbar-item-wrapper">
+                <div class="hover-oval w-12"></div>
+                <a href="#home" class="navbar-item text-center block">GK</a>
+            </div>
+            <div class="navbar-item-wrapper">
+                <div class="hover-oval w-24"></div>
+                <a href="#resume" class="navbar-item text-center block">Resume</a>
+            </div>
+            <div class="navbar-item-wrapper">
+                <div class="hover-oval w-24"></div>
+                <a href="#projects" class="navbar-item text-center block">Project</a>
+            </div>
+            <div class="navbar-item-wrapper">
+                <div class="hover-oval w-24"></div>
+                <a href="#contact" class="navbar-item text-center block">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="bg-white text-center py-20">
+        <div class="container mx-auto">
+            <h1 class="text-5xl font-bold text-orange-500">I’m Gautham Krishna</h1>
+            <p class="text-3xl text-gray-900 mt-4">Product Designer</p>
+            <div class="mt-8">
+                <button class="bg-orange-500 text-white px-6 py-3 rounded-full hover:bg-orange-600 transition">Portfolio</button>
+                <button class="bg-gray-800 text-white px-6 py-3 rounded-full hover:bg-gray-900 ml-4 transition">Hire me</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- My Services Section -->
+    <section class="bg-gray-900 text-white py-20">
+        <div class="container mx-auto">
+            <h2 class="text-4xl font-bold text-left text-orange-500">My Services</h2>
+            <p class="text-lg mt-4 text-left text-gray-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis lacus nunc, posuere in justo vulputate, bibendum sodales.</p>
+            <div class="flex justify-around mt-12">
+                <div class="bg-white bg-opacity-10 rounded-xl p-6 text-center relative w-1/3 mx-2">
+                    <img src="Rectangle 7.png" alt="UI/UX Design" class="w-full rounded-lg">
+                    <h3 class="text-xl font-bold mt-4">UI/UX Design</h3>
+                    <div class="absolute bottom-4 right-4">
+                        <img src="up right.svg" alt="Icon" class="w-8 h-8">
+                    </div>
+                </div>
+                <div class="bg-white bg-opacity-10 rounded-xl p-6 text-center relative w-1/3 mx-2">
+                    <img src="Rectangle 8.png" alt="Web Design" class="w-full rounded-lg">
+                    <h3 class="text-xl font-bold mt-4">Web Design</h3>
+                    <div class="absolute bottom-4 right-4">
+                        <img src="up right.svg" alt="Icon" class="w-8 h-8">
+                    </div>
+                </div>
+                <div class="bg-white bg-opacity-10 rounded-xl p-6 text-center relative w-1/3 mx-2">
+                    <img src="Rectangle 9.png" alt="Graphic Designs" class="w-full rounded-lg">
+                    <h3 class="text-xl font-bold mt-4">Graphic Designs</h3>
+                    <div class="absolute bottom-4 right-4">
+                        <img src="up right.svg" alt="Icon" class="w-8 h-8">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- My Work Experience Section -->
+    <section class="bg-gray-50 text-gray-900 py-20">
+        <div class="container mx-auto">
+            <h2 class="text-4xl font-bold text-orange-500 text-center">My Work Experience</h2>
+            <div class="flex mt-12">
+                <!-- Left Side -->
+                <div class="w-1/2 pr-10">
+                    <div class="mb-10">
+                        <h3 class="text-2xl font-bold">Strawket Learning Inc.</h3>
+                        <p class="text-gray-600">Toronto, Canada | Jan 2024 - Present</p>
+                    </div>
+                    <div class="mb-10">
+                        <h3 class="text-2xl font-bold">AYUDH Amritapuri</h3>
+                        <p class="text-gray-600">Amritapuri, India | Aug 2022 - July 2024</p>
+                    </div>
+                    <div class="mb-10">
+                        <h3 class="text-2xl font-bold">ACM Association for Computing Machinery</h3>
+                        <p class="text-gray-600">Amritapuri, India | Mar 2022 - Jun 2024</p>
+                    </div>
+                    <div class="mb-10">
+                        <h3 class="text-2xl font-bold">Amrita Hospital</h3>
+                        <p class="text-gray-600">Faridabad, India | Aug 2022 - Aug 2022</p>
+                    </div>
+                </div>
+
+                <!-- Right Side -->
+                <div class="w-1/2 pl-10 border-l-2 border-gray-200">
+                    <div class="mb-10">
+                        <h3 class="text-2xl font-bold">UI/UX Designer</h3>
+                        <p class="text-gray-600">Designing user-friendly educational software interfaces and developing wireframes and prototypes.</p>
+                    </div>
+                    <div class="mb-10">
+                        <h3 class="text-2xl font-bold">Media Manager</h3>
+                        <p class="text-gray-600">Managed media communications and promotions for AYUDH Amritapuri.</p>
+                    </div>
+                    <div class="mb-10">
+                        <h3 class="text-2xl font-bold">Design Head</h3>
+                        <p class="text-gray-600">Led a design team, developed strategies, and oversaw the design process from concept to delivery.</p>
+                    </div>
+                    <div class="mb-10">
+                        <h3 class="text-2xl font-bold">Liasioning Executive</h3>
+                        <p class="text-gray-600">Managed interactions with the Special Protection Group for the Prime Minister of India, handling meetings, secure rooms, procurement, and event planning.</p>
+                    </div>
+                    <div class="mb-10">
+                        <h3 class="text-2xl font-bold">Project Team Lead</h3>
+                        <p class="text-gray-600">Led a task force, managed projects, oversaw logistics, and collaborated with teams to align with organizational goals during the inauguration.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Hire Me Section -->
+    <section class="bg-white py-20">
+        <div class="container mx-auto text-center">
+            <h2 class="text-4xl font-bold text-orange-500">Why Hire Me?</h2>
+            <p class="text-gray-600 mt-4 max-w-2xl mx-auto">Benefit from years of experience and a track record of success. I have helped countless clients reach their goals through tailored solutions and actionable insights. Learn why clients trust me to deliver impactful and lasting outcomes that drive real progress.</p>
+            <div class="flex justify-around mt-12">
+                <div class="text-center">
+                    <h3 class="text-3xl font-bold text-gray-900">400+</h3>
+                    <p class="text-gray-600">Projects Completed</p>
+                </div>
+                <div class="text-center">
+                    <h3 class="text-3xl font-bold text-gray-900">10+</h3>
+                    <p class="text-gray-600">Project Collaborations</p>
+                </div>
+            </div>
+            <button class="bg-orange-500 text-white px-6 py-3 mt-8 rounded-full hover:bg-orange-600 transition">Hire me</button>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="bg-gray-900 text-white py-20">
+        <div class="container mx-auto">
+            <h2 class="text-4xl font-bold text-orange-500 text-center">Testimonials That Speak to My Results</h2>
+            <p class="text-gray-400 text-center mt-4 max-w-2xl mx-auto">Discover how our clients have achieved remarkable success through our tailored strategies and expert guidance. Read their stories and see the difference we can make together.</p>
+            <div class="flex justify-around mt-12">
+                <div class="bg-white bg-opacity-10 rounded-xl p-6 w-1/3 mx-2 text-center">
+                    <img src="your-image-url-here" alt="Jayesh Patil" class="w-16 h-16 rounded-full mx-auto">
+                    <h3 class="text-xl font-bold mt-4">Jayesh Patil</h3>
+                    <p class="text-gray-400 text-sm">CEO, Lirante</p>
+                    <div class="flex justify-center mt-2">
+                        <img src="star-icon-url-here" alt="Star" class="w-4 h-4 mx-1">
+                        <img src="star-icon-url-here" alt="Star" class="w-4 h-4 mx-1">
+                        <img src="star-icon-url-here" alt="Star" class="w-4 h-4 mx-1">
+                        <img src="star-icon-url-here" alt="Star" class="w-4 h-4 mx-1">
+                        <img src="star-icon-url-here" alt="Star" class="w-4 h-4 mx-1">
+                    </div>
+                    <p class="text-gray-400 mt-4 text-sm">Consectetur adipiscing elit. Sed congue interdum ligula a dignissim. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+                <div class="bg-white bg-opacity-10 rounded-xl p-6 w-1/3 mx-2 text-center">
+                    <img src="your-image-url-here" alt="Deepak Subramani" class="w-16 h-16 rounded-full mx-auto">
+                    <h3 class="text-xl font-bold mt-4">Deepak Subramani</h3>
+                    <p class="text-gray-400 text-sm">CEO, Strawket Learning Inc.</p>
+                    <div class="flex justify-center mt-2">
+                        <img src="star-icon-url-here" alt="Star" class="w-4 h-4 mx-1">
+                        <img src="star-icon-url-here" alt="Star" class="w-4 h-4 mx-1">
+                        <img src="star-icon-url-here" alt="Star" class="w-4 h-4 mx-1">
+                        <img src="star-icon-url-here" alt="Star" class="w-4 h-4 mx-1">
+                        <img src="star-icon-url-here" alt="Star" class="w-4 h-4 mx-1">
+                    </div>
+                    <p class="text-gray-400 mt-4 text-sm">Consectetur adipiscing elit. Sed congue interdum ligula a dignissim. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="bg-white py-20">
+        <div class="container mx-auto text-center">
+            <h2 class="text-4xl font-bold text-orange-500">Have an Awesome Project Idea? Let’s Discuss</h2>
+            <div class="mt-8 flex justify-center items-center">
+                <div class="flex bg-gray-100 rounded-full shadow-md w-96">
+                    <input type="email" placeholder="Enter Email Address" class="px-4 py-2 rounded-full w-full focus:outline-none">
+                    <button class="bg-orange-500 text-white px-6 py-2 rounded-full hover:bg-orange-600 transition">Send</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>

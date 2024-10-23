@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lists</title>
+    <script>
+        function validateForm(event) {
+            const password = document.querySelector('input[id="pass"]').value;
+            const confirmPassword = document.querySelector('input[id="confPass"]').value;
+            const name = document.querySelector('input[id="uname"]').value;
+            const email = document.querySelector('input[id="email"]').value;
+            const emailRegex = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.(com$)/;
+            const error = document.getElementById('errors');
+            const nameRegex = /^[a-zA-Z]+$/;
+
+            if (password !== confirmPassword) {
+                alert("Passwords do not match. Please try again.");
+                event.preventDefault();
+            }
+            else if (!emailRegex.test(email)){
+                error.innerHTML = email + " is not a valid email address.";
+                event.preventDefault();
+            }
+            else if (!nameRegex.test(name)){
+                error.innerHTML = 'name invalid';
+                event.preventDefault();
+            }
+            else{
+                alert('blaaaaaaaaaaaaa');
+                event.preventDefault();
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <p id="bla">lisducfhsdi</p>
+    <p>wieufhiuwds</p>
+    <img src="#" alt="bla">
+    <ol type="1" id="bla2">qwidxgyuew
+        <li>A</li>
+        <li>
+            B
+            
+        </li>
+        <ul type="o">
+            <li>C</li>
+            <li>E</li>
+        </ul>
+        <li>
+            E
+            <ol type="i">
+                <li>F</li>
+                <li>H</li>
+            </ol>
+        </li>
+    </ol>
+
+    <table border="2" style="border-color: blue; width: 30%;">
+        <tr>
+            <th>Class</th>
+            <th>Grade</th>
+            <th>Marks</th>
+        </tr>
+        <tr>
+            <td rowspan="2" align="center">10th</td>
+            <td colspan="2" align="center">A<sup>2</sup></td>
+        </tr>
+        <tr>
+            <td>B</td>
+            <td>85</td>
+        </tr>
+    </table>
+
+    <br>
+    <hr><br>
+
+    <form method="post" onsubmit="validateForm(event)">
+        <label>Name: </label>
+        <input type="text" name="name" value="jdcns" required placeholder="XYZ">
+        <br><br>
+        <label>Email: </label>
+        <input type="text" id="email" name="email"  required placeholder="XYZ">
+        <br><br>
+        <label>Mobile: </label>
+        <input type="tel" name="mobile" pattern="[0-9]{10}" value="1234567890" required placeholder="1234567890">
+        <br><br>
+        <label>Address: </label><br>
+        <textarea name="address" rows="4" cols="50" value="lscuj" placeholder="Enter your address here..." required></textarea>
+        <br><br>
+        <label>Username: </label>
+        <input type="text" id="uname" name="username" value="osduhfsd" required placeholder="sample_user">
+        <br><br>
+        <label>Password: </label>
+        <input type="password" id="pass" name="password" value="asd" required placeholder="Set Password">
+        <br><br>
+        <label>Confirm Password: </label>
+        <input type="password" id="confPass" name="confirm-password" value="asd" required placeholder="Re-type Password">
+        <br><br>
+        <label>Marital Status: </label>
+        <select name="marital-status" required id="marital-status">
+            <option value="Married">Married</option>
+            <option value="Single">Single</option>
+        </select>
+        <br><br>
+        <label>Gender: </label>
+        <div id="bla1">
+            <input type="radio" id="M" name="gender" value="M" required>
+            <label for="M">Male</label><br>
+            <input type="radio" id="F" name="gender" value="F">
+            <label for="F">Female</label>
+        </div>
+        <br>
+        <label>Subjects: </label>
+        <div>
+            <input type="checkbox" id="Computers" name="subject" value="Computers">
+            <label for="Computers">Computers</label><br>
+            <input type="checkbox" id="Chemistry" name="subject" value="Chemistry">
+            <label for="Chemistry">Chemistry</label><br>
+            <input type="checkbox" id="Physics" name="subject" value="Physics">
+            <label for="Physics">Physics</label><br>
+            <input type="checkbox" id="Maths" name="subject" value="Maths">
+            <label for="Maths">Maths</label><br>
+        </div>
+        <br>
+        <p id="errors"></p>
+        <input type="reset" value="Reset">
+        <input type="submit" value="Submit">
+    </form>
+ 
+    <script>
+        var node = document.getElementById('bla');
+        console.log(node.nodeType);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academics Form</title>
+    <link rel="stylesheet" href="forms.css">
+</head>
+<body>
+    <a href="page.html"><button>Home</button></a>
+
+    <form method="post" onsubmit="validateForm(event)">
+        <h1>Forms for Academics</h1>
+    
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br><br>
+    
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br><br>
+    
+        <label for="phone">Phone:</label>
+        <input type="tel" id="phone" name="phone" required><br><br>
+    
+        <label for="dob">DOB:</label>
+        <input type="date" id="dob" name="dob" required><br><br>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br><br>
+
+        <label for="conf_password">Confirm Password:</label>
+        <input type="password" id="conf_password" name="conf_password" required><br><br>
+
+        <label for="address">Address:</label><br>
+        <textarea name="address" id="address"></textarea><br><br>
+    
+        <label for="gender">Gender:</label><br>
+        <label class="innerlabel" for="male"> <input type="radio" id="male" name="gender" value="male" required> Male</label><br>
+        <label class="innerlabel" for="female"> <input type="radio" id="female" name="gender" value="female" required> Female</label><br>
+        <label class="innerlabel" for="other"> <input type="radio" id="other" name="gender" value="other" required> Other</label><br><br>
+    
+        <label for="qualification">Qualification:</label><br>
+        <label class="innerlabel" for="10th"><input type="checkbox" id="10th" name="qualification" value="10th"> 10th</label><br>
+        <label class="innerlabel" for="12th"><input type="checkbox" id="12th" name="qualification" value="12th"> 12th</label><br>
+        <label class="innerlabel" for="ug"><input type="checkbox" id="ug" name="qualification" value="ug"> Undergraduate (UG)</label><br>
+        <label class="innerlabel" for="pg"><input type="checkbox" id="pg" name="qualification" value="pg"> Postgraduate (PG)</label><br><br>
+
+        <button type="submit">Submit</button>
+        <button type="reset">Reset</button>
+
+    </form>
+    <p id="message"></p>
+    <p id="text"></p>
+
+    <script>
+        function validateForm(event) {
+            event.preventDefault(); 
+            
+            var password = document.getElementById("password").value;
+            var name = document.getElementById("name").value;
+            var confPassword = document.getElementById("conf_password").value;
+            var message = document.getElementById("message");
+            var text = document.getElementById("text");
+            
+            if (password === confPassword) {
+                text.style.color = "red";
+                text.innerHTML = "Hello " + name + "! Your form has been submitted successfully!";
+            } else {
+                message.style.color = "green";
+                message.innerHTML = "Passwords do not match!";
+            }
+        }
+    </script>
+</body>
+</html>

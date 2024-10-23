@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lists</title>
+    <script>
+        function validateForm(event) {
+            const password = document.querySelector('input[name="password"]').value;
+            const confirmPassword = document.querySelector('input[name="confirm-password"]').value;
+            const name = document.querySelector('input[name="name"]').value;
+
+            if (password !== confirmPassword) {
+                alert("Passwords do not match. Please try again.");
+                event.preventDefault();
+            } else {
+                event.preventDefault();
+                document.body.innerHTML = "<h1>Form submitted successfully!</h2>";
+                document.body.style.display = "flex";
+                document.body.style.justifyContent = "center";
+                document.body.style.alignItems = "center";
+                document.body.style.height = "100vh";
+                document.body.style.margin = "0";
+                document.body.style.textAlign = "center";
+                document.body.style.flexDirection = "column";
+
+                setTimeout(function () {
+                    window.location.href = "bla.html";
+                }, 3000);
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <ol type="1">
+        <li>A</li>
+        <li>
+            B
+            
+        </li>
+        <ul type="o">
+            <li>C</li>
+            <li>E</li>
+        </ul>
+        <li>
+            E
+            <ol type="i">
+                <li>F</li>
+                <li>H</li>
+            </ol>
+        </li>
+    </ol>
+
+    <table border="2" style="border-color: blue; width: 30%;">
+        <tr>
+            <th>Class</th>
+            <th>Grade</th>
+            <th>Marks</th>
+        </tr>
+        <tr>
+            <td rowspan="2" align="center">10th</td>
+            <td colspan="2" align="center">A<sup>2</sup></td>
+        </tr>
+        <tr>
+            <td>B</td>
+            <td>85</td>
+        </tr>
+    </table>
+
+    <br>
+    <hr><br>
+
+    <form method="post" onsubmit="validateForm(event)">
+        <label>Name: </label>
+        <input type="text" name="name" required placeholder="XYZ">
+        <br><br>
+        <label>Mobile: </label>
+        <input type="tel" name="mobile" pattern="[0-9]{10}" required placeholder="1234567890">
+        <br><br>
+        <label>Address: </label><br>
+        <textarea name="address" rows="4" cols="50" placeholder="Enter your address here..." required></textarea>
+        <br><br>
+        <label>Username: </label>
+        <input type="text" name="username" required placeholder="sample_user">
+        <br><br>
+        <label>Password: </label>
+        <input type="password" name="password" required placeholder="Set Password">
+        <br><br>
+        <label>Confirm Password: </label>
+        <input type="password" name="confirm-password" required placeholder="Re-type Password">
+        <br><br>
+        <label>Marital Status: </label>
+        <select name="marital-status" required id="marital-status">
+            <option value="Married">Married</option>
+            <option value="Single">Single</option>
+        </select>
+        <br><br>
+        <label>Gender: </label>
+        <div>
+            <input type="radio" id="M" name="gender" value="M" required>
+            <label for="M">Male</label><br>
+            <input type="radio" id="F" name="gender" value="F">
+            <label for="F">Female</label>
+        </div>
+        <br>
+        <label>Subjects: </label>
+        <div>
+            <input type="checkbox" id="Computers" name="subject" value="Computers">
+            <label for="Computers">Computers</label><br>
+            <input type="checkbox" id="Chemistry" name="subject" value="Chemistry">
+            <label for="Chemistry">Chemistry</label><br>
+            <input type="checkbox" id="Physics" name="subject" value="Physics">
+            <label for="Physics">Physics</label><br>
+            <input type="checkbox" id="Maths" name="subject" value="Maths">
+            <label for="Maths">Maths</label><br>
+        </div>
+        <br>
+        <input type="reset" value="Reset">
+        <input type="submit" value="Submit">
+    </form>
+</body>
+
+</html>

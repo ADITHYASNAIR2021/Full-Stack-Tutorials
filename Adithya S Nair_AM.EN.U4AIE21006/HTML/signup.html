@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Your Apple Account</title>
+    <link rel="stylesheet" href="../CSS/signup.css">
+</head>
+<body>
+    <div class="header">
+        <div class="header-left">
+            <h1>Apple Account</h1>
+        </div>
+        <div class="header-right">
+            <a href="login.html">Sign In</a>
+            <a href="signup.html">Create Your Apple Account</a>
+            <a href="faq.html">FAQ</a>
+        </div>
+    </div>
+
+    <div class="signup-container">
+        <img src="../Images/Website-main.PNG" alt="Apple Logo" class="apple-logo">
+        <h2>Create Your Apple Account</h2>
+        <p>One Apple Account is all you need to access all Apple services.</p>
+
+        <form action="phone.html">
+            <div class="name-fields">
+                <input type="text" placeholder="first name" required>
+                <input type="text" placeholder="last name" required>
+            </div>
+
+            <div class="country-field">
+                <label for="country">COUNTRY / REGION</label>
+                <select id="country" name="country">
+                    <option value="India" selected>India</option>
+                    <option value="USA">USA</option>
+                    <option value="UK">UK</option>
+                    <option value="Canada">Canada</option>
+                </select>
+            </div>
+
+            <input type="date" placeholder="Date of birth" required>
+
+            <input type="email" placeholder="name@example.com" required>
+            <p class="account-info">This will be your new Apple Account.</p>
+
+            <input type="password" placeholder="password" required>
+            <input type="password" placeholder="confirm password" required>
+
+            <a href="phone.html"><button type="submit" class="submit-btn">Create Account</button></a>
+            <br>
+            <br>
+        </form>
+    </div>
+</body>
+</html>

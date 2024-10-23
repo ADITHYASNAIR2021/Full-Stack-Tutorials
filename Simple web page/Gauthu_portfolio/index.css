@@ -1,0 +1,309 @@
+body {
+    font-family: 'Lufga', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+    color: #333333;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    font-weight: 600;
+}
+
+p {
+    margin: 0;
+}
+.frame-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.home-wrapper, .home-container {
+    margin: 0 15px;
+}
+.im-gautham-krishna-product-container p {
+    font-family: 'Lufga', sans-serif;
+    font-weight: 700;
+    font-size: 48px;
+    color: #FF7A00; /* Adjust this color if needed */
+}
+.vector-parent {
+    position: relative;
+}
+.young-pretty-woman-looking-hap-icon {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 250px; /* Adjust width to match image */
+}
+.iconstar-parent {
+    display: flex;
+    gap: 5px;
+}
+.years {
+    font-weight: 700;
+    font-size: 24px;
+}
+.experince {
+    font-weight: 400;
+    font-size: 16px;
+}
+.portfolio-parent, .hire-me-wrapper {
+    background: linear-gradient(90deg, #FF7A00 0%, #FFAB00 100%);
+    border-radius: 30px;
+    padding: 10px 20px;
+    display: inline-flex;
+    align-items: center;
+}
+.group-parent1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #F4F4F4;
+}
+
+/* Section: My Services */
+.my-services {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #ff7a00;
+    text-align: left;
+}
+
+.my-services-section {
+    background-color: #222222;
+    padding: 50px;
+    color: #ffffff;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.service-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+    width: 300px;
+}
+
+.service-card img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.service-title {
+    font-size: 24px;
+    font-weight: 700;
+    margin-top: 20px;
+    color: #ffffff;
+}
+
+.service-card .icon-outlined-directions {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    width: 30px;
+    height: 30px;
+}
+
+/* Section: My Work Experience */
+.my-work-experience {
+    padding: 50px;
+    background-color: #f7f7f7;
+}
+
+.my-work-experience h2 {
+    font-size: 36px;
+    font-weight: 700;
+    color: #ff7a00;
+}
+
+.timeline {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.timeline .left, .timeline .right {
+    width: 45%;
+}
+
+.timeline .left .job, .timeline .right .job-description {
+    margin-bottom: 20px;
+}
+
+.timeline .left .job-title, .timeline .right .job-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #333333;
+}
+
+.timeline .left .job-location, .timeline .right .job-location {
+    font-size: 16px;
+    font-weight: 400;
+    color: #666666;
+}
+
+.timeline .right .job-description {
+    font-size: 16px;
+    font-weight: 400;
+    color: #666666;
+}
+
+.timeline .circle {
+    width: 20px;
+    height: 20px;
+    background-color: #ff7a00;
+    border-radius: 50%;
+    border: 5px solid #ffffff;
+}
+
+.timeline .line {
+    width: 2px;
+    height: 100%;
+    background-color: #cccccc;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Section: Why Hire Me */
+.why-hire-me {
+    padding: 50px;
+    background-color: #f7f7f7;
+    text-align: center;
+}
+
+.why-hire-me h2 {
+    font-size: 36px;
+    font-weight: 700;
+    color: #ff7a00;
+}
+
+.why-hire-me .description {
+    font-size: 16px;
+    font-weight: 400;
+    color: #666666;
+    margin: 20px 0;
+}
+
+.why-hire-me .stats {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 30px;
+}
+
+.why-hire-me .stat {
+    font-size: 24px;
+    font-weight: 700;
+    color: #333333;
+}
+
+.why-hire-me .hire-button {
+    margin-top: 30px;
+    padding: 10px 30px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #ffffff;
+    background-color: #ff7a00;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+/* Section: Testimonials */
+.testimonials {
+    background-color: #222222;
+    padding: 50px;
+    color: #ffffff;
+}
+
+.testimonials h2 {
+    font-size: 36px;
+    font-weight: 700;
+    color: #ff7a00;
+    text-align: center;
+}
+
+.testimonial-card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px;
+    text-align: center;
+    color: #ffffff;
+}
+
+.testimonial-card img {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    margin-bottom: 20px;
+}
+
+.testimonial-card .name {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.testimonial-card .rating {
+    margin-bottom: 10px;
+}
+
+.testimonial-card .rating img {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+}
+
+.testimonial-card .feedback {
+    font-size: 16px;
+    font-weight: 400;
+    color: #cccccc;
+}
+
+/* Section: Contact */
+.contact-section {
+    padding: 50px;
+    background-color: #f7f7f7;
+    text-align: center;
+}
+
+.contact-section h2 {
+    font-size: 36px;
+    font-weight: 700;
+    color: #ff7a00;
+    margin-bottom: 20px;
+}
+
+.contact-section .input-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.contact-section .input-group input {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: 1px solid #cccccc;
+    border-radius: 30px 0 0 30px;
+    width: 300px;
+    outline: none;
+}
+
+.contact-section .input-group button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #ff7a00;
+    color: #ffffff;
+    border: none;
+    border-radius: 0 30px 30px 0;
+    cursor: pointer;
+}

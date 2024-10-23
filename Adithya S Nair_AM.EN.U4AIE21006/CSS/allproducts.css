@@ -1,0 +1,328 @@
+@import "https://fonts.googleapis.com/css?family=Poppins";
+
+
+body {
+    overflow-x: hidden;
+    margin: 0px;
+    padding: 0px;
+    font-family: -apple-system, sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+}
+
+#nav1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    height: 50px;
+    background-color: #323232;
+    color: #fff;
+}
+
+#nav1 > a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 150;
+}
+#nav2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px; /* Adjusted height */
+    width: 100%;
+    border-bottom: 1px solid rgb(215, 209, 209);
+}
+
+#innav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    width: 62%;
+}
+
+#right h2{
+    font-weight: 600;
+    font-size: 19px;
+}
+#left>a{
+    margin-right: 14px;
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.776);
+    font-size: 13px;
+}
+#left>a:hover{
+    color: royalblue;
+}
+#left>a:nth-child(1){
+    color: grey;
+}
+#left>a>button{
+    background-color: #147CE5;
+    border: none;
+    border-radius: 50px;
+    padding: 2px 10px;
+    color: #fff;
+    font-weight: 300;
+    transition: all cubic-bezier(0.19, 1, 0.22, 1) .5s;
+}
+#left>button:hover{
+    background-color: #105aa4;
+    cursor: pointer;
+}
+#first>h1{
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    margin-top:110px;
+    font-size: 60px;
+    transition: all ease 1s;
+}
+
+
+.mainpage1 {
+    background-image: url("https://www.apple.com/in/home/images/heroes/iphone-14-pro/hero_iphone14pro_spring__9xo85pm6sbmm_largetall.jpg");
+    height: 588px;
+    background-position: center -35px;
+    background-position-x: center;
+}
+
+.mp1-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+}
+
+.mp1-title1 {
+    margin-top: 30px;
+    font-size: 50px;
+    font-weight: bolder;
+}
+
+.mp1-title2 {
+    font-size: 25px;
+}
+
+.mainpagelink {
+    font-size: 20px;
+}
+
+.mainpage2 {
+    background-image: url("https://www.apple.com/in/home/heroes/iphone-14/images/hero_iphone14_yellow__eun20sn4imi6_largetall.jpg");
+    background-position-x: center;
+    height: 82vh;
+    width: 100vw;
+}
+
+.mp-default-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: rgb(34, 34, 34);
+    line-height: 30px;
+}
+
+.mp2-title1 {
+    margin-top: 60px;
+    font-size: 50px;
+    font-weight: bolder;
+    margin-bottom: 15px;
+}
+
+.mp2-desc {
+    font-size: 23px;
+}
+
+.mainpagelink {
+    font-size: 20px;
+}
+
+/* Main page - 3 -> Apple watch */
+
+.mainpage3 {
+    background-image: url("https://www.apple.com/in/home/images/heroes/apple-watch-series-8/hero_apple_watch_series_8_spring__b1y8wb7xjc9y_largetall.jpg");
+    height: 78vh;
+    background-position-x: center;
+}
+
+.mp3desc {
+    font-size: 23px;
+    color: white;
+    margin-bottom: 15px;
+}
+
+/* Main page - 4 -> grid items */
+
+.mainpage4 {
+    background-color: white;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.grid-item {
+    flex-basis: 49%;
+    margin: 5px;
+}
+
+.applewatchlogo {
+    margin-top: 60px;
+}
+
+.applewatchcontainer {
+    margin-top: 50px;
+}
+
+.motherday {
+    margin-top: 50px;
+    font-size: 35px;
+    font-weight: bold;
+    width: 350px;
+    text-align: center;
+    line-height: 40px;
+}
+
+.motherday2 {
+    margin-top: 10px;
+    width: 250px;
+    text-align: center;
+    line-height: 20px;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.promo1 {
+    background-image: url("https://www.apple.com/v/home/az/images/promos/iphone-tradein/iphone_tradein_promo__d5au3rkw5kuq_large.jpg");
+    background-position-x: center;
+    height: 560px;
+
+}
+
+.promo2 {
+    background-image: url("https://www.apple.com/v/home/az/images/promos/wwdc23-announce/promo_wwdc23__b68ptht3mro2_large.jpg");
+    background-position-x: center;
+    height: 560px;
+}
+
+.promo3 {
+    background-image: url("https://www.apple.com/v/home/az/images/promos/ipad/promo_ipad__fioegapg12qi_large.jpg");
+    background-position-x: center;
+    height: 560px;
+}
+
+.promo4 {
+    background-image: url("https://www.apple.com/v/home/az/images/promos/macbook-pro-14-and-16/promo_mbp__ek7p477bkp6q_large.jpg");
+    background-position-x: center;
+    height: 560px;
+}
+
+.promo5 {
+    background-image: url("https://www.apple.com/v/home/az/images/promos/mothers-day-2023/airpods/promo__sw58lbodkmqq_large.jpg");
+    background-position-x: center;
+    height: 560px;
+}
+
+.promo6 {
+    background-image: url("https://www.apple.com/in/home/promos/apple-watch-ultra/images/promo_apple_watch_ultra__gnsqulvdc4a6_large.jpg");
+    background-position-x: center;
+    height: 560px;
+}
+
+#ipadtitle {
+    margin-top: 50px;
+    font-size: 36px;
+    font-weight: bolder;
+}
+
+#mactitle {
+    margin-top: 50px;
+    font-size: 36px;
+    font-weight: bolder;
+    color: white;
+}
+
+#macdescription {
+    margin-top: 10px;
+    color: white;
+    font-size: 19px;
+}
+
+.appletradein {
+    margin-top: 50px;
+}
+
+.wwdc23 {
+    margin-top: 350px;
+}
+
+.wwdc23text {
+    color: white;
+}
+
+/* Footer  */
+
+.footer {
+    background-color: #111;
+    color: #888;
+    padding: 20px;
+    font-size: 14px;
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-content p {
+    margin: 10px 0;
+}
+
+.footer a {
+    color: #007aff;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid #333;
+    margin: 15px 0;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.footer-links ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links ul li {
+    margin: 0 10px;
+}
+
+.footer-links ul li a {
+    color: #888;
+    text-decoration: none;
+}
+
+.footer-links ul li a:hover {
+    text-decoration: underline;
+}
+
+
