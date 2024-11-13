@@ -14,5 +14,41 @@
     <button><a href="{% url 'contact' %}">Contact app</a></button>
     <button><a href="{% url 'about' %}">About app</a></button>
 
+    <h2>Donor page</h2>
+    <p>Donor page is a page where you can donate blood, organs, etc.</p>
+
+    <h3>Add Student</h3>
+    <form method="POST">
+        {% csrf_token %}
+        {{ student_form.as_p }}  
+        <button type="submit" name="student_form">Add Student</button>
+    </form>
+
+<hr>
+
+    <h3>Add Course Details</h3>
+    <form method="POST">
+        {% csrf_token %}
+        {{ course_form.as_p }} 
+        <button type="submit" name="course_form">Add Course</button>
+    </form>
+
+<hr>
+
+    <h3>Students</h3>
+    {% for child in students %}
+        <p>Name: {{ child.name }}</p>
+        <p>Roll Number: {{ child.roll_no }}</p>
+        <p>Hobbies: {{ child.hobbys }}</p>
+        
+        <h4>Courses</h4>
+        {% for course in courses %}
+            {% if course.student.id == child.id %}
+                <p>{{ course.course }}</p>
+            {% endif %}
+        {% endfor %}
+        <hr>
+    {% endfor %}
+
 </body>
 </html>

@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{%load static%}
+{% block content %}
+<div class="container my-5">
+    <h2>Create Your Personalized Learning Path</h2>
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+    <form method="post">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="goal" class="form-label">Your Career Goal</label>
+            <input type="text" class="form-control" id="goal" name="goal" placeholder="e.g., Machine Learning Engineer" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Generate</button>
+    </form>
+</div>
+{% endblock %}

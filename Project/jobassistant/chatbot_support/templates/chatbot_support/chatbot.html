@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+{%load static%}
+{% block content %}
+<h2>🤖 Chatbot Support</h2>
+<div class="chat-container">
+    <div id="chat-window" class="chat-window">
+    </div>
+    <div class="chat-input">
+        <input type="text" id="user-input" placeholder="Type your message here..." autofocus>
+        <button id="send-button" class="btn btn-primary">Send</button>
+    </div>
+</div>
+
+<style>
+.chat-container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+.chat-window {
+    border: 1px solid #ccc;
+    padding: 15px;
+    height: 400px;
+    overflow-y: auto;
+    margin-bottom: 15px;
+    background-color: #f9f9f9;
+}
+.chat-message {
+    margin-bottom: 10px;
+}
+.chat-message.user {
+    text-align: right;
+}
+.chat-message.bot {
+    text-align: left;
+}
+.chat-input {
+    display: flex;
+}
+#user-input {
+    flex: 1;
+    padding: 10px;
+}
+#send-button {
+    margin-left: 10px;
+}
+</style>
+
+<script>
+document.getElementById('send-button').addEventListener('click', sendMessage);
+document.getElementById('user-input').addEventListener('keypress', function (e) {
+    if (e.key === 'Enter') {
+        sendMessage();
+    }
+});
+
+function sendMessage() {
+    const userInput = document.getElementById('user-input');
+    const message = userInput.value.trim();
+    if (message === '') return;
+
+    appendMessage('You', message, 'user');
+    userInput.value = '';
+    userInput.focus();
+
+    fetch('{% url "chatbot_support:get_response" %}', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRFToken': '{{ csrf_token }}'
+        },
+        body: JSON.stringify({ message: message })
+    })
+    .then(response => response.json())
+    .then(data => {
+        appendMessage('Bot', data.message, 'bot');
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        appendMessage('Bot', 'Sorry, an error occurred.', 'bot');
+    });
+}
+
+function appendMessage(sender, message, cssClass) {
+    const chatWindow = document.getElementById('chat-window');
+    const messageDiv = document.createElement('div');
+    messageDiv.classList.add('chat-message', cssClass);
+    messageDiv.innerHTML = `<strong>${sender}:</strong> ${message}`;
+    chatWindow.appendChild(messageDiv);
+    chatWindow.scrollTop = chatWindow.scrollHeight;
+}
+</script>
+{% endblock %}

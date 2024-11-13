@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<h2>📋 My Job Applications</h2>
+<a href="{% url 'application_tracking:application_add' %}" class="btn btn-primary mb-3">Add New Application</a>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Company</th>
+            <th>Position</th>
+            <th>Application Date</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for application in applications %}
+        <tr>
+            <td>{{ application.company.name }}</td>
+            <td>{{ application.position }}</td>
+            <td>{{ application.application_date }}</td>
+            <td>{{ application.status }}</td>
+            <td>
+                <a href="{% url 'application_tracking:application_detail' application.pk %}" class="btn btn-info btn-sm">View</a>
+                <a href="{% url 'application_tracking:application_edit' application.pk %}" class="btn btn-warning btn-sm">Edit</a>
+                <a href="{% url 'application_tracking:application_delete' application.pk %}" class="btn btn-danger btn-sm">Delete</a>
+            </td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="5">No applications found.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

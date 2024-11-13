@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container">
+    <h2 class="mt-4">📝 Interview Preparation</h2>
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="job_title">Job Title</label>
+            <input type="text" id="job_title" name="job_title" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="company_name">Company Name</label>
+            <input type="text" id="company_name" name="company_name" class="form-control" required>
+        </div>
+        <button type="submit" class="btn btn-primary mt-2">Generate Questions</button>
+    </form>
+</div>
+{% endblock %}

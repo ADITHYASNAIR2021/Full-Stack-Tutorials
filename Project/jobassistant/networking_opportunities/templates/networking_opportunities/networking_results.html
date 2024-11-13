@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{%load static%}
+{% block content %}
+<div class="container my-5">
+    <h2>🔗 Recommended Networking Groups and Events</h2>
+    <p>
+        Based on your skills and industry, here are some networking opportunities:
+    </p>
+
+    <div class="mb-4">
+        <strong>Skills:</strong> {{ user_skills }}<br>
+        <strong>Industry:</strong> {{ industry }}
+    </div>
+
+    {% if suggestions %}
+        <ol>
+            {% for suggestion in suggestions %}
+                <li>{{ suggestion|linebreaks }}</li>
+            {% endfor %}
+        </ol>
+    {% else %}
+        <p>No suggestions found.</p>
+    {% endif %}
+
+    <a href="{% url 'networking_opportunities:networking_opportunities_view' %}" class="btn btn-secondary mt-3">🔄 Search Again</a>
+</div>
+{% endblock %}

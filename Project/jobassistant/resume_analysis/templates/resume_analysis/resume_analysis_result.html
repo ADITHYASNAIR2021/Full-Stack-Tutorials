@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container my-5">
+    <h2>📄 Resume Analysis Results</h2>
+
+    <h3>💼 Identified Skills</h3>
+    {% if skills %}
+        <ul class="list-group list-group-flush">
+            {% for skill in skills %}
+            <li class="list-group-item">{{ skill }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No skills extracted.</p>
+    {% endif %}
+
+    <h3 class="mt-4">🔑 Suggested Keywords for ATS Optimization</h3>
+    {% if keywords %}
+        <ul class="list-group list-group-flush">
+            {% for keyword in keywords %}
+            <li class="list-group-item">{{ keyword }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No keywords suggested.</p>
+    {% endif %}
+
+    <h3 class="mt-4">🛠️ Optimization Suggestions</h3>
+    <ul>
+        <li>Incorporate the suggested keywords to improve ATS compatibility.</li>
+        <li>Highlight skills and experiences that align closely with job descriptions.</li>
+        <li>Ensure consistent formatting for headings, bullet points, and text alignment.</li>
+        <li>Quantify your accomplishments to demonstrate impact.</li>
+        <li>Customize your resume for each job application to emphasize relevant experiences.</li>
+    </ul>
+
+    {% if skill_chart_html %}
+        <h3 class="mt-4">📊 Skill Distribution</h3>
+        {{ skill_chart_html|safe }}
+    {% endif %}
+
+    {% if experience_timeline_html %}
+        <h3 class="mt-4">📅 Experience Timeline</h3>
+        {{ experience_timeline_html|safe }}
+    {% endif %}
+
+    <a href="{% url 'resume_analysis:resume_analysis_view' %}" class="btn btn-secondary mt-4">Analyze Another Resume</a>
+</div>
+{% endblock %}

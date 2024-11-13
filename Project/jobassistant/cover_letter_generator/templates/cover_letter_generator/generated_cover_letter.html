@@ -1,0 +1,19 @@
+<!-- cover_letter_generator/templates/cover_letter_generator/generated_cover_letter.html -->
+{% extends 'base.html' %}
+{%load static%}
+{% block content %}
+<h2>📝 Generated Cover Letter</h2>
+<pre>{{ cover_letter_text }}</pre>
+<a href="#" class="btn btn-success" onclick="downloadCoverLetter()">Download Cover Letter</a>
+
+<script>
+function downloadCoverLetter() {
+    const text = `{{ cover_letter_text|escapejs }}`;
+    const blob = new Blob([text], { type: 'text/plain' });
+    const link = document.createElement('a');
+    link.href = window.URL.createObjectURL(blob);
+    link.download = 'generated_cover_letter.txt';
+    link.click();
+}
+</script>
+{% endblock %}

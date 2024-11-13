@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load learning_path_extras %}
+{%load static%}
+{% block content %}
+<div class="container my-5">
+    <h2>Learning Path to Become a {{ goal }}</h2>
+    {% for topic in learning_path %}
+    <div class="card mb-4">
+        <div class="card-body">
+            <h5 class="card-title">{{ topic.title }}</h5>
+            <p class="card-text">{{ topic.description }}</p>
+            {% if topic.video_url %}
+            <div class="ratio ratio-16x9">
+                <iframe src="{{ topic.video_url|youtube_embed_url }}" allowfullscreen></iframe>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+    {% endfor %}
+    <a href="{% url 'learning_paths:generate_learning_path' %}" class="btn btn-secondary">Generate New Path</a>
+</div>
+{% endblock %}

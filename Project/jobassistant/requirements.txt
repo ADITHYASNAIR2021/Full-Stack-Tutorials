@@ -1,0 +1,14 @@
+Django
+djangorestframework
+django-crispy-forms
+streamlit
+streamlit-chat
+langchain-groq
+plotly
+pandas
+sqlite3
+requests
+beautifulsoup4
+PyMuPDF
+django-tailwind
+django-theme

@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{%load static%}
+{% block content %}
+<div class="container my-5">
+    <h2>🤝 Networking Opportunities</h2>
+    <p>
+        Expand your professional network by connecting with relevant industry peers and joining professional groups.
+    </p>
+
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-info">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+
+    <form method="post">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="user_skills" class="form-label">💡 Enter your key skills (comma-separated):</label>
+            <input type="text" class="form-control" id="user_skills" name="user_skills" placeholder="e.g., Python, Machine Learning, Data Analysis" required>
+        </div>
+        <div class="mb-3">
+            <label for="industry" class="form-label">🏭 Enter your industry:</label>
+            <input type="text" class="form-control" id="industry" name="industry" placeholder="e.g., Technology, Finance" required>
+        </div>
+        <button type="submit" class="btn btn-primary">🔍 Find Networking Opportunities</button>
+    </form>
+</div>
+{% endblock %}

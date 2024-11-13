@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container my-5">
+    <h2>📄 Resume Analysis and Optimization</h2>
+    <p>
+        Enhance your resume's effectiveness with our comprehensive analysis tools. Upload your resume to extract key information, receive optimization suggestions, and visualize your skills.
+    </p>
+
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-danger">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="resume_file" class="form-label">📂 Upload your resume (PDF format):</label>
+            <input type="file" class="form-control" id="resume_file" name="resume_file" accept=".pdf" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Analyze Resume</button>
+    </form>
+</div>
+{% endblock %}

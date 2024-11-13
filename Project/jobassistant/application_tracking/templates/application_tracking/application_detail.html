@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<h2>Application Details</h2>
+<ul class="list-group">
+    <li class="list-group-item"><strong>Company:</strong> {{ application.company.name }}</li>
+    <li class="list-group-item"><strong>Position:</strong> {{ application.position }}</li>
+    <li class="list-group-item"><strong>Application Date:</strong> {{ application.application_date }}</li>
+    <li class="list-group-item"><strong>Status:</strong> {{ application.status }}</li>
+    <li class="list-group-item"><strong>Notes:</strong> {{ application.notes }}</li>
+    {% if application.resume %}
+    <li class="list-group-item">
+        <strong>Resume:</strong> <a href="{{ application.resume.url }}">Download</a>
+    </li>
+    {% endif %}
+    {% if application.cover_letter %}
+    <li class="list-group-item">
+        <strong>Cover Letter:</strong> <a href="{{ application.cover_letter.url }}">Download</a>
+    </li>
+    {% endif %}
+</ul>
+<a href="{% url 'application_tracking:application_edit' application.pk %}" class="btn btn-warning mt-3">Edit</a>
+<a href="{% url 'application_tracking:application_delete' application.pk %}" class="btn btn-danger mt-3">Delete</a>
+<a href="{% url 'application_tracking:application_list' %}" class="btn btn-secondary mt-3">Back to List</a>
+{% endblock %}

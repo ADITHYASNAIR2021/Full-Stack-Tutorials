@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<h2>Interview Questions for "{{ topic }}"</h2>
+{% for item in interview_questions %}
+<div class="card mb-3">
+    <div class="card-header">
+        Question {{ forloop.counter }}
+    </div>
+    <div class="card-body">
+        <p><strong>{{ item.question }}</strong></p>
+        <p>{{ item.answer }}</p>
+    </div>
+</div>
+{% endfor %}
+<a href="{% url 'interview_preparation:interview_preparation' %}" class="btn btn-secondary mt-3">Generate More Questions</a>
+{% endblock %}

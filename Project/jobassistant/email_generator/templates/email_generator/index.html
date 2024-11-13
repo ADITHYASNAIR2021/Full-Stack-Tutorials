@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<h2>📧 Automated Email Generator</h2>
+<form method="post" enctype="multipart/form-data" action="{% url 'email_generator:generate_email' %}">
+    {% csrf_token %}
+    <div class="mb-3">
+        <label for="job_link" class="form-label">🔗 Enter the Job Link:</label>
+        <input type="url" class="form-control" id="job_link" name="job_link" placeholder="https://example.com/job-posting" required>
+    </div>
+    <div class="mb-3">
+        <label for="resume_file" class="form-label">📄 Upload Your Resume (PDF):</label>
+        <input type="file" class="form-control" id="resume_file" name="resume_file" accept="application/pdf" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Generate Email</button>
+</form>
+{% endblock %}
