@@ -1,19 +1,50 @@
-<!-- cover_letter_generator/templates/cover_letter_generator/generated_cover_letter.html -->
-{% extends 'base.html' %}
-{%load static%}
-{% block content %}
-<h2>📝 Generated Cover Letter</h2>
-<pre>{{ cover_letter_text }}</pre>
-<a href="#" class="btn btn-success" onclick="downloadCoverLetter()">Download Cover Letter</a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>Generated Cover Letter - OptiHire</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+          integrity="sha512-p1XcblnP0iU+ocPnJUsXkZl2QmGkqCKvRxl/zi2eJ9Q5FnZzxFn2EAGFbT30vufktB4FbVla2IK6JrBjNHJq9w=="
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
 
-<script>
-function downloadCoverLetter() {
-    const text = `{{ cover_letter_text|escapejs }}`;
-    const blob = new Blob([text], { type: 'text/plain' });
-    const link = document.createElement('a');
-    link.href = window.URL.createObjectURL(blob);
-    link.download = 'generated_cover_letter.txt';
-    link.click();
-}
-</script>
-{% endblock %}
+    {% include 'navbar.html' %}
+
+    <div class="container my-5">
+        <h2 class="mb-4 text-center">📝 Generated Cover Letter</h2>
+        <div class="card">
+            <div class="card-body">
+                <pre>{{ cover_letter_text }}</pre>
+            </div>
+        </div>
+        <div class="text-center mt-4">
+            <a href="#" class="btn btn-success" onclick="downloadCoverLetter()">
+                <i class="fas fa-download"></i> Download Cover Letter
+            </a>
+        </div>
+    </div>
+
+    {% include 'footer.html' %}
+
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <script>
+    function downloadCoverLetter() {
+        const text = `{{ cover_letter_text|escapejs }}`;
+        const blob = new Blob([text], { type: 'text/plain' });
+        const link = document.createElement('a');
+        link.href = window.URL.createObjectURL(blob);
+        link.download = 'generated_cover_letter.txt';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    }
+    </script>
+
+</body>
+</html>

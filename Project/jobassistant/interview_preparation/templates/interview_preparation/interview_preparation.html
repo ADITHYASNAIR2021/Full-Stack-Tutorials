@@ -1,19 +1,52 @@
-{% extends 'base.html' %}
-{% load static %}
-{% block content %}
-<div class="container">
-    <h2 class="mt-4">📝 Interview Preparation</h2>
-    <form method="post">
-        {% csrf_token %}
-        <div class="form-group">
-            <label for="job_title">Job Title</label>
-            <input type="text" id="job_title" name="job_title" class="form-control" required>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>Interview Preparation - OptiHire</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+          integrity="sha512-p1XcblnP0iU+ocPnJUsXkZl2QmGkqCKvRxl/zi2eJ9Q5FnZzxFn2EAGFbT30vufktB4FbVla2IK6JrBjNHJq9w=="
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+    {% include 'navbar.html' %}
+
+    <div class="container my-5">
+        <h2 class="mb-4 text-center">📝 Interview Preparation</h2>
+        <p class="text-center mb-5">
+            Prepare for your upcoming interviews with tailored questions based on the job title and company.
+        </p>
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="job_title" class="form-label">Job Title</label>
+                        <input type="text" id="job_title" name="job_title" class="form-control" required placeholder="e.g., Software Engineer">
+                    </div>
+                    <div class="mb-3">
+                        <label for="company_name" class="form-label">Company Name</label>
+                        <input type="text" id="company_name" name="company_name" class="form-control" required placeholder="e.g., Google">
+                    </div>
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-question-circle"></i> Generate Questions
+                        </button>
+                    </div>
+                </form>
+            </div>
         </div>
-        <div class="form-group">
-            <label for="company_name">Company Name</label>
-            <input type="text" id="company_name" name="company_name" class="form-control" required>
-        </div>
-        <button type="submit" class="btn btn-primary mt-2">Generate Questions</button>
-    </form>
-</div>
-{% endblock %}
+    </div>
+
+    {% include 'footer.html' %}
+
+
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+</body>
+</html>

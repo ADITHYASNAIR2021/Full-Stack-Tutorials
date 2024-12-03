@@ -1,25 +1,174 @@
-{% extends 'base.html' %}
-{% load static %}
-{% block content %}
-<div class="container my-5">
-    <h2>📄 Resume Analysis and Optimization</h2>
-    <p>
-        Enhance your resume's effectiveness with our comprehensive analysis tools. Upload your resume to extract key information, receive optimization suggestions, and visualize your skills.
-    </p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>📄 Resume Analysis - OptiHire</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+          integrity="sha512-p1XcblnP0iU+ocPnJUsXkZl2QmGkqCKvRxl/zi2eJ9Q5FnZzxFn2EAGFbT30vufktB4FbVla2IK6JrBjNHJq9w=="
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background-color: #f0f4f8;
+        }
+        .content {
+            flex: 1 0 auto;
+        }
+        .section-header {
+            margin-top: 40px;
+            margin-bottom: 20px;
+            color: #343a40;
+        }
+        .list-group-item {
+            background-color: #ffffff;
+            border: 1px solid #dee2e6;
+        }
+        .list-group-item strong {
+            color: #343a40;
+        }
+        .optimization-suggestions ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+        .btn-warning {
+            background-color: #ffc107;
+            border-color: #ffc107;
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+        .btn-warning:hover {
+            background-color: #e0a800;
+            border-color: #d39e00;
+        }
+        .benefits-section h4 {
+            color: #343a40;
+            font-weight: 600;
+        }
+        .benefit-item h5 {
+            font-weight: 600;
+            color: #0d6efd;
+        }
+        .benefit-item p {
+            color: #6c757d;
+        }
+        .download-btn {
+            background-color: #0d6efd;
+            border: none;
+            transition: background-color 0.3s;
+        }
+        .download-btn:hover {
+            background-color: #0056b3;
+        }
+        .download-btn i {
+            margin-right: 8px;
+        }
+        .card-title i {
+            margin-right: 8px;
+            color: #0d6efd;
+        }
+    </style>
+</head>
+<body>
 
-    {% if messages %}
-        {% for message in messages %}
-            <div class="alert alert-danger">{{ message }}</div>
-        {% endfor %}
-    {% endif %}
+    {% include 'navbar.html' %}
 
-    <form method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        <div class="mb-3">
-            <label for="resume_file" class="form-label">📂 Upload your resume (PDF format):</label>
-            <input type="file" class="form-control" id="resume_file" name="resume_file" accept=".pdf" required>
+    <div class="content container my-5">
+        <div class="row mb-4">
+            <div class="col-lg-8 mx-auto text-center">
+                <h2 class="mb-3">📄 Resume Analysis</h2>
+                <p class="lead">
+                    Ensure your resume stands out to potential employers. Our Resume Analysis tool provides detailed feedback to help you optimize your resume for success.
+                </p>
+            </div>
         </div>
-        <button type="submit" class="btn btn-primary">Analyze Resume</button>
-    </form>
-</div>
-{% endblock %}
+
+        <div class="row">
+            <div class="col-lg-6 mx-auto">
+                <h4 class="mb-4 text-center">📝 Upload Your Resume for Analysis</h4>
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="resume_file" class="form-label">📄 Upload Your Resume (PDF):</label>
+                        <input type="file" class="form-control" id="resume_file" name="resume_file" accept="application/pdf" required>
+                    </div>
+                    <button type="submit" class="btn btn-warning w-100">
+                        <i class="fas fa-file-upload me-2"></i>Analyze Resume
+                    </button>
+                </form>
+                <br>
+            </div>
+        </div>
+
+        <div class="row mb-5">
+            <div class="col-lg-6 mx-auto">
+                <h4 class="text-center mb-4">🔍 How It Works</h4>
+                <div class="d-flex align-items-start mb-3">
+                    <div class="me-3">
+                        <i class="fas fa-upload fa-2x text-warning"></i>
+                    </div>
+                    <div>
+                        <h5>1. Upload Resume</h5>
+                        <p>Upload your resume in PDF format. Our system will analyze it for key elements.</p>
+                    </div>
+                </div>
+                <div class="d-flex align-items-start mb-3">
+                    <div class="me-3">
+                        <i class="fas fa-search fa-2x text-warning"></i>
+                    </div>
+                    <div>
+                        <h5>2. Analyze</h5>
+                        <p>Our tool evaluates your resume's structure, content, and keywords relevant to your industry.</p>
+                    </div>
+                </div>
+                <div class="d-flex align-items-start">
+                    <div class="me-3">
+                        <i class="fas fa-file-alt fa-2x text-warning"></i>
+                    </div>
+                    <div>
+                        <h5>3. Get Feedback</h5>
+                        <p>Receive detailed feedback and suggestions to improve your resume.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-5">
+            <div class="col-lg-8 mx-auto">
+                <h4 class="text-center mb-4">🌟 Benefits of Using Our Resume Analysis Tool</h4>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item d-flex align-items-center">
+                        <i class="fas fa-check-circle text-warning me-3"></i>
+                        <strong>Optimization:</strong> Improve your resume to increase your chances of getting noticed.
+                    </li>
+                    <li class="list-group-item d-flex align-items-center">
+                        <i class="fas fa-check-circle text-warning me-3"></i>
+                        <strong>Keyword Enhancement:</strong> Ensure your resume includes relevant industry keywords.
+                    </li>
+                    <li class="list-group-item d-flex align-items-center">
+                        <i class="fas fa-check-circle text-warning me-3"></i>
+                        <strong>Professional Feedback:</strong> Get expert advice on how to present your skills and experience.
+                    </li>
+                    <li class="list-group-item d-flex align-items-center">
+                        <i class="fas fa-check-circle text-warning me-3"></i>
+                        <strong>Stand Out:</strong> Make your resume stand out from the competition.
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <br>
+    </div>
+
+    {% include 'footer.html' %}
+
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+</body>
+</html>

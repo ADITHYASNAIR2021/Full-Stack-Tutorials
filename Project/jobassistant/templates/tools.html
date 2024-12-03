@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>Our Tools - OptiHire</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+          integrity="sha512-k1WsQFXk0xvdIPedFSjjPZ85G3vOS3++DLYuV4MctO6qK3lDMBK5VzR8R5XrVffBY3SMT4SYoU+/b+3bN6K6gw=="
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        /* Custom card styles */
+        .tool-card {
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+        }
+        .tool-card::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 5px;
+            top: 0;
+            left: 0;
+        }
+        .tool-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        .tool-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+        .tool-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        .tool-text {
+            color: #6c757d;
+            margin-bottom: 1.5rem;
+        }
+        /* Color schemes for each tool */
+        .email-generator .tool-icon, .email-generator .btn {
+            color: #007bff;
+        }
+        .email-generator .tool-card::before {
+            background-color: #007bff;
+        }
+        .cover-letter-generator .tool-icon, .cover-letter-generator .btn {
+            color: #28a745;
+        }
+        .cover-letter-generator .tool-card::before {
+            background-color: #28a745;
+        }
+        .application-tracking .tool-icon, .application-tracking .btn {
+            color: #6c757d;
+        }
+        .application-tracking .tool-card::before {
+            background-color: #6c757d;
+        }
+        .chatbot-support .tool-icon, .chatbot-support .btn {
+            color: #17a2b8;
+        }
+        .chatbot-support .tool-card::before {
+            background-color: #17a2b8;
+        }
+        .interview-preparation .tool-icon, .interview-preparation .btn {
+            color: #ffc107;
+        }
+        .interview-preparation .tool-card::before {
+            background-color: #ffc107;
+        }
+        .learning-path .tool-icon, .learning-path .btn {
+            color: #dc3545;
+        }
+        .learning-path .tool-card::before {
+            background-color: #dc3545;
+        }
+        .networking-opportunities .tool-icon, .networking-opportunities .btn {
+            color: #28a745;
+        }
+        .networking-opportunities .tool-card::before {
+            background-color: #28a745;
+        }
+        .resource-library .tool-icon, .resource-library .btn {
+            color: #007bff;
+        }
+        .resource-library .tool-card::before {
+            background-color: #007bff;
+        }
+        .resume-analysis .tool-icon, .resume-analysis .btn {
+            color: #343a40;
+        }
+        .resume-analysis .tool-card::before {
+            background-color: #343a40;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container mt-5">
+        <section class="my-5">
+            <h2 class="text-center fw-bold mb-5 animate__animated animate__fadeInDown">Our Tools</h2>
+            <div class="row">
+
+                <!-- Email Generator -->
+                <div class="col-md-4 mb-4 email-generator">
+                    <div class="card tool-card h-100 text-center animate__animated animate__fadeInUp">
+                        <div class="card-body d-flex flex-column align-items-center">
+                            <div class="tool-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <h5 class="tool-title">Email Generator</h5>
+                            <p class="tool-text">Create professional emails tailored to your job applications effortlessly.</p>
+                            <a href="{% url 'email_generator:index' %}" class="btn btn-outline-primary mt-auto">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Cover Letter Generator -->
+                <div class="col-md-4 mb-4 cover-letter-generator">
+                    <div class="card tool-card h-100 text-center animate__animated animate__fadeInUp" style="animation-delay: 0.1s;">
+                        <div class="card-body d-flex flex-column align-items-center">
+                            <div class="tool-icon">
+                                <i class="fas fa-file-alt"></i>
+                            </div>
+                            <h5 class="tool-title">Cover Letter Generator</h5>
+                            <p class="tool-text">Craft compelling cover letters that stand out.</p>
+                            <a href="{% url 'cover_letter_generator:index' %}" class="btn btn-outline-success mt-auto">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Application Tracking -->
+                <div class="col-md-4 mb-4 application-tracking">
+                    <div class="card tool-card h-100 text-center animate__animated animate__fadeInUp" style="animation-delay: 0.2s;">
+                        <div class="card-body d-flex flex-column align-items-center">
+                            <div class="tool-icon">
+                                <i class="fa fa-list"></i>
+                            </div>
+                            <h5 class="tool-title">Application Tracking</h5>
+                            <p class="tool-text">Keep track of all your job applications in one place.</p>
+                            <a href="{% url 'application_tracking:application_list' %}" class="btn btn-outline-secondary mt-auto">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- ChatBot Support -->
+                <div class="col-md-4 mb-4 chatbot-support">
+                    <div class="card tool-card h-100 text-center animate__animated animate__fadeInUp" style="animation-delay: 0.3s;">
+                        <div class="card-body d-flex flex-column align-items-center">
+                            <div class="tool-icon">
+                                <i class="fas fa-comments"></i>
+                            </div>
+                            <h5 class="tool-title">ChatBot Support</h5>
+                            <p class="tool-text">Chat and discover the magic.</p>
+                            <a href="{% url 'chatbot_support:chatbot' %}" class="btn btn-outline-info mt-auto">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Interview Preparation -->
+                <div class="col-md-4 mb-4 interview-preparation">
+                    <div class="card tool-card h-100 text-center animate__animated animate__fadeInUp" style="animation-delay: 0.4s;">
+                        <div class="card-body d-flex flex-column align-items-center">
+                            <div class="tool-icon">
+                                <i class="fas fa-user-tie"></i>
+                            </div>
+                            <h5 class="tool-title">Interview Preparation</h5>
+                            <p class="tool-text">Prepare for your interviews using the help of AI.</p>
+                            <a href="{% url 'interview_preparation:interview_preparation' %}" class="btn btn-outline-warning mt-auto">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Learning Path -->
+                <div class="col-md-4 mb-4 learning-path">
+                    <div class="card tool-card h-100 text-center animate__animated animate__fadeInUp" style="animation-delay: 0.5s;">
+                        <div class="card-body d-flex flex-column align-items-center">
+                            <div class="tool-icon">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <h5 class="tool-title">Learning Path</h5>
+                            <p class="tool-text">Discover new skills with our guided learning paths.</p>
+                            <a href="{% url 'learning_paths:generate_learning_path' %}" class="btn btn-outline-danger mt-auto">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Networking Opportunities -->
+                <div class="col-md-4 mb-4 networking-opportunities">
+                    <div class="card tool-card h-100 text-center animate__animated animate__fadeInUp" style="animation-delay: 0.6s;">
+                        <div class="card-body d-flex flex-column align-items-center">
+                            <div class="tool-icon">
+                                <i class="fas fa-network-wired"></i>
+                            </div>
+                            <h5 class="tool-title">Networking Opportunities</h5>
+                            <p class="tool-text">Grow with the help of professional networks.</p>
+                            <a href="{% url 'networking_opportunities:networking_opportunities_view' %}" class="btn btn-outline-success mt-auto">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Resource Library -->
+                <div class="col-md-4 mb-4 resource-library">
+                    <div class="card tool-card h-100 text-center animate__animated animate__fadeInUp" style="animation-delay: 0.7s;">
+                        <div class="card-body d-flex flex-column align-items-center">
+                            <div class="tool-icon">
+                                <i class="fas fa-book"></i>
+                            </div>
+                            <h5 class="tool-title">Resource Library</h5>
+                            <p class="tool-text">Explore our curated list of documents and presentations.</p>
+                            <a href="{% url 'resource_library:resource_library_view' %}" class="btn btn-outline-primary mt-auto">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Resume Analysis -->
+                <div class="col-md-4 mb-4 resume-analysis">
+                    <div class="card tool-card h-100 text-center animate__animated animate__fadeInUp" style="animation-delay: 0.8s;">
+                        <div class="card-body d-flex flex-column align-items-center">
+                            <div class="tool-icon">
+                                <i class="fas fa-file-signature"></i>
+                            </div>
+                            <h5 class="tool-title">Resume Analysis</h5>
+                            <p class="tool-text">Enhance your resume with expert feedback.</p>
+                            <a href="{% url 'resume_analysis:resume_analysis_view' %}" class="btn btn-outline-dark mt-auto">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+
+</body>
+</html>

@@ -1,80 +1,185 @@
-{% extends 'base.html' %}
-{%load static%}
-{% block content %}
-<div class="container my-5">
-    <h2>📚 Resource Library</h2>
-    <p>
-        Access a collection of templates and guides to enhance your job search.
-    </p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>📚 Resource Library - OptiHire</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+          integrity="sha512-p1XcblnP0iU+ocPnJUsXkZl2QmGkqCKvRxl/zi2eJ9Q5FnZzxFn2EAGFbT30vufktB4FbVla2IK6JrBjNHJq9w=="
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .content {
+            flex: 1 0 auto;
+        }
+        .resource-card:hover {
+            transform: translateY(-5px);
+            transition: transform 0.3s;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        }
+        .pagination .page-link {
+            color: #0d6efd;
+        }
+        .pagination .page-item.active .page-link {
+            background-color: #0d6efd;
+            border-color: #0d6efd;
+            color: #fff;
+        }
+        .search-icon {
+            position: absolute;
+            top: 50%;
+            left: 15px;
+            transform: translateY(-50%);
+            color: #6c757d;
+        }
+        .search-input {
+            padding-left: 40px;
+        }
+    </style>
+</head>
+<body>
 
-    <form method="get" class="mb-4">
-        <div class="input-group">
-            <input type="text" name="q" class="form-control" placeholder="Search resources..." value="{{ request.GET.q }}">
-            <button type="submit" class="btn btn-primary">Search</button>
+    {% include 'navbar.html' %}
+
+    <div class="content container my-5">
+        <h2 class="mb-4 text-center">📚 Resource Library</h2>
+        <p class="text-center mb-5">
+            Access a collection of templates and guides to enhance your job search and professional development.
+        </p>
+
+        <form method="get" class="mb-4 position-relative">
+            <span class="search-icon"><i class="fas fa-search"></i></span>
+            <div class="input-group">
+                <input type="text" name="q" class="form-control search-input" placeholder="🔍 Search resources..." value="{{ request.GET.q }}">
+                <button type="submit" class="btn btn-primary">Search</button>
+            </div>
+        </form>
+
+        <div class="row">
+            {% for resource in resources %}
+            <div class="col-md-6 mb-4">
+                <div class="card h-100 resource-card">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title"><i class="fas fa-file-alt me-2 text-primary"></i>{{ resource.title }}</h5>
+                        <p class="card-text flex-grow-1">{{ resource.description }}</p>
+                        <a href="{{ resource.file.url }}" class="btn btn-success mt-auto" download>
+                            <i class="fas fa-download me-2"></i>Download
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <div class="col-12">
+                <p class="text-center">No resources available at the moment. Stay tuned!</p>
+            </div>
+            {% endfor %}
         </div>
-    </form>
 
-    <div class="row">
-        {% for resource in resources %}
-        <div class="col-md-6 mb-4">
-            <div class="card h-100">
-                <div class="card-body">
-                    <h5 class="card-title">{{ resource.title }}</h5>
-                    <p class="card-text">{{ resource.description }}</p>
-                    <a href="{{ resource.file.url }}" class="btn btn-primary" download>⬇️ Download</a>
+        <nav aria-label="Page navigation">
+            <ul class="pagination justify-content-center">
+                {% if resources.has_previous %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ resources.previous_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                {% else %}
+                <li class="page-item disabled">
+                    <span class="page-link">&laquo;</span>
+                </li>
+                {% endif %}
+
+                {% for num in resources.paginator.page_range %}
+                    {% if resources.number == num %}
+                        <li class="page-item active"><span class="page-link">{{ num }}</span></li>
+                    {% elif num > resources.number|add:'-3' and num < resources.number|add:'3' %}
+                        <li class="page-item"><a class="page-link" href="?page={{ num }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">{{ num }}</a></li>
+                    {% endif %}
+                {% endfor %}
+
+                {% if resources.has_next %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ resources.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+                {% else %}
+                <li class="page-item disabled">
+                    <span class="page-link">&raquo;</span>
+                </li>
+                {% endif %}
+            </ul>
+        </nav>
+
+        <div class="mt-5">
+            <h4 class="text-center mb-4">🌟 Why Use Our Resource Library?</h4>
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="d-flex">
+                        <div class="me-3">
+                            <i class="fas fa-book-open fa-2x text-primary"></i>
+                        </div>
+                        <div>
+                            <h5>Comprehensive Materials</h5>
+                            <p>Find everything you need in one place, from templates to in-depth guides.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="d-flex">
+                        <div class="me-3">
+                            <i class="fas fa-lightbulb fa-2x text-primary"></i>
+                        </div>
+                        <div>
+                            <h5>Innovative Tools</h5>
+                            <p>Utilize cutting-edge resources designed to boost your job search efficiency.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="d-flex">
+                        <div class="me-3">
+                            <i class="fa-users fa-2x text-primary"></i>
+                        </div>
+                        <div>
+                            <h5>Community Support</h5>
+                            <p>Join a community of job seekers and professionals sharing valuable insights.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="d-flex">
+                        <div class="me-3">
+                            <i class="fa-chart-line fa-2x text-primary"></i>
+                        </div>
+                        <div>
+                            <h5>Track Your Progress</h5>
+                            <p>Monitor your job search activities and stay organized with our tools.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-        {% empty %}
-        <p>No resources available at the moment.</p>
-        {% endfor %}
+
     </div>
 
-    <div class="card-body">
-        <h5 class="card-title">{{ resource.title }}</h5>
-        <p class="card-text">{{ resource.description }}</p>
-        <a href="{{ resource.file.url }}" class="btn btn-primary" download>⬇️ Download</a>
-    </div>
+    {% include 'footer.html' %}
 
-    <nav aria-label="Page navigation">
-        <ul class="pagination">
-            {% if resources.has_previous %}
-            <li class="page-item">
-                <a class="page-link" href="?page={{ resources.previous_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}" aria-label="Previous">
-                    <span aria-hidden="true">&laquo;</span>
-                </a>
-            </li>
-            {% else %}
-            <li class="page-item disabled">
-                <span class="page-link">&laquo;</span>
-            </li>
-            {% endif %}
-    
-            {% for num in resources.paginator.page_range %}
-            {% if resources.number == num %}
-            <li class="page-item active">
-                <span class="page-link">{{ num }}</span>
-            </li>
-            {% else %}
-            <li class="page-item">
-                <a class="page-link" href="?page={{ num }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">{{ num }}</a>
-            </li>
-            {% endif %}
-            {% endfor %}
-    
-            {% if resources.has_next %}
-            <li class="page-item">
-                <a class="page-link" href="?page={{ resources.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}" aria-label="Next">
-                    <span aria-hidden="true">&raquo;</span>
-                </a>
-            </li>
-            {% else %}
-            <li class="page-item disabled">
-                <span class="page-link">&raquo;</span>
-            </li>
-            {% endif %}
-        </ul>
-    </nav>
-
-</div>
-{% endblock %}
+    <!-- JS Files -->
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+</body>
+</html>

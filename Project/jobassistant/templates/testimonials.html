@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>Testimonials - OptiHire</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+          integrity="sha384-jLKHWM7t5qF7p0r5i6lXxQr72YdZ5jGhgYDhQ4+F/Y9syXjrK6vgEypFfVTTFjVJ"
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .testimonial-card {
+            border: none;
+            border-radius: 15px;
+            background-color: #f8f9fa;
+            transition: transform 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .testimonial-card::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 5px;
+            background-color: #17a2b8;
+            top: 0;
+            left: 0;
+        }
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        .testimonial-icon {
+            font-size: 3rem;
+            color: #17a2b8;
+            margin-bottom: 1rem;
+        }
+        .testimonial-text {
+            font-style: italic;
+            color: #6c757d;
+        }
+        .testimonial-name {
+            margin-top: 1.5rem;
+            font-weight: bold;
+            color: #343a40;
+        }
+    </style>
+</head>
+<body>
+
+    <section class="my-5">
+        <h2 class="text-center fw-bold mb-5">What Our Users Say</h2>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="card testimonial-card h-100 animate__animated animate__fadeInUp">
+                        <div class="card-body d-flex flex-column justify-content-center align-items-center text-center">
+                            <div class="testimonial-icon">
+                                <i class="fas fa-quote-left"></i>
+                            </div>
+                            <p class="testimonial-text">"OptiHire transformed my job search process. Highly recommended!"</p>
+                            <h5 class="testimonial-name">- Jane Smith</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 mb-4">
+                    <div class="card testimonial-card h-100 animate__animated animate__fadeInUp" style="animation-delay: 0.2s;">
+                        <div class="card-body d-flex flex-column justify-content-center align-items-center text-center">
+                            <div class="testimonial-icon">
+                                <i class="fas fa-quote-left"></i>
+                            </div>
+                            <p class="testimonial-text">"The tools provided by OptiHire are second to none. I landed my dream job!"</p>
+                            <h5 class="testimonial-name">- John Doe</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 mb-4">
+                    <div class="card testimonial-card h-100 animate__animated animate__fadeInUp" style="animation-delay: 0.4s;">
+                        <div class="card-body d-flex flex-column justify-content-center align-items-center text-center">
+                            <div class="testimonial-icon">
+                                <i class="fas fa-quote-left"></i>
+                            </div>
+                            <p class="testimonial-text">"A must-have platform for anyone serious about their career."</p>
+                            <h5 class="testimonial-name">- Emily Johnson</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 mb-4">
+                    <div class="card testimonial-card h-100 animate__animated animate__fadeInUp" style="animation-delay: 0.6s;">
+                        <div class="card-body d-flex flex-column justify-content-center align-items-center text-center">
+                            <div class="testimonial-icon">
+                                <i class="fas fa-quote-left"></i>
+                            </div>
+                            <p class="testimonial-text">"OptiHire made my job applications effortless. The support is fantastic!"</p>
+                            <h5 class="testimonial-name">- Michael Lee</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+</body>
+</html>

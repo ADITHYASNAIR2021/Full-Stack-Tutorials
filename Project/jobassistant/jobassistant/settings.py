@@ -30,6 +30,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     'rest_framework',
     'crispy_forms',
+    'crispy_bootstrap5',
     'email_generator',
     'cover_letter_generator',
     'resume_analysis',
@@ -79,7 +80,7 @@ TAILWIND_APP_NAME = 'theme'
 # settings.py
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'  # or your email host
+EMAIL_HOST = 'smtp.gmail.com' 
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'your_email@example.com'
@@ -128,14 +129,10 @@ USE_I18N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/5.0/howto/static-files/
-
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [BASE_DIR / 'static']
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
-# Media files (User-uploaded content)
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
@@ -145,10 +142,8 @@ MEDIA_ROOT = BASE_DIR / 'media'
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-# Crispy Forms
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
-# API Keys and Secrets
 import os
 GROQ_API_KEY = "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"
 RAPIDAPI_KEY = "2a4a8a38a9msh97ce530a89589a6p1d0106jsn1acc0a5ea6bc"  
@@ -157,3 +152,7 @@ ADZUNA_APP_ID = "4ef93dd6"
 ADZUNA_APP_KEY = "ea00310e17a602dccab1ef21c37f38ea"
 THE_MUSE_API_KEY = "0b2cdf266af53172bb9bfe0b9efe009c807bec9fc30f59f9c0933b577e7c0cae"
 BLS_API_KEY = "83ce4823b8b14babb9f9045410145b17"
+
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+CRISPY_TEMPLATE_PACK = "bootstrap5"

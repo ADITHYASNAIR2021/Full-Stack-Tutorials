@@ -22,7 +22,6 @@ def get_response(request):
 
         if user_message:
             try:
-                # Generate a response using Groq API
                 prompt = f"User: {user_message}\nAssistant:"
                 response = llm.invoke(prompt)
                 bot_response = response.content.strip()

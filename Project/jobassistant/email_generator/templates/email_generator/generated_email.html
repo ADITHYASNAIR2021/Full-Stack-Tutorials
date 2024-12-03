@@ -1,18 +1,71 @@
-{% extends 'base.html' %}
-{% load static %}
-{% block content %}
-<h2>📨 Generated Email</h2>
-<pre>{{ email_text }}</pre>
-<a href="#" class="btn btn-success" onclick="downloadEmail()">Download Email</a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>Generated Email - OptiHire</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<script>
-function downloadEmail() {
-    const text = `{{ email_text|escapejs }}`;
-    const blob = new Blob([text], { type: 'text/plain' });
-    const link = document.createElement('a');
-    link.href = window.URL.createObjectURL(blob);
-    link.download = 'generated_email.txt';
-    link.click();
-}
-</script>
-{% endblock %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+          integrity="sha512-p1XcblnP0iU+ocPnJUsXkZl2QmGkqCKvRxl/zi2eJ9Q5FnZzxFn2EAGFbT30vufktB4FbVla2IK6JrBjNHJq9w=="
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+    html, body {
+        height: 100%;
+    }
+    body {
+        display: flex;
+        flex-direction: column;
+    }
+    .content {
+        flex: 1 0 auto;
+    }
+    footer {
+        flex-shrink: 0;
+    }
+    </style>
+</head>
+<body>
+
+    {% include 'navbar.html' %}
+
+    <div class="content container my-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <h2 class="mb-4 text-center">📨 Generated Email</h2>
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <div class="pre-container mb-3" style="max-height: 400px; overflow-y: auto;">
+                            <pre class="mb-0">{{ email_text }}</pre>
+                        </div>
+                        <div class="d-flex justify-content-center">
+                            <a href="#" class="btn btn-success" onclick="downloadEmail()">
+                                <i class="fas fa-download"></i> Download Email
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% include 'footer.html' %}
+
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <script>
+    function downloadEmail() {
+        const text = `{{ email_text|escapejs }}`;
+        const blob = new Blob([text], { type: 'text/plain' });
+        const link = document.createElement('a');
+        link.href = window.URL.createObjectURL(blob);
+        link.download = 'generated_email.txt';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    }
+    </script>
+</body>
+</html>

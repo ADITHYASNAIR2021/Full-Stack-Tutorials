@@ -1,27 +1,128 @@
-{% extends 'base.html' %}
-{%load static%}
-{% block content %}
-<div class="container my-5">
-    <h2>🔗 Recommended Networking Groups and Events</h2>
-    <p>
-        Based on your skills and industry, here are some networking opportunities:
-    </p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>Recommended Networking Opportunities - OptiHire</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <div class="mb-4">
-        <strong>Skills:</strong> {{ user_skills }}<br>
-        <strong>Industry:</strong> {{ industry }}
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+          integrity="sha512-p1XcblnP0iU+ocPnJUsXkZl2QmGkqCKvRxl/zi2eJ9Q5FnZxFn2EAGFbT30vufktB4FbVla2IK6JrBjNHJq9w=="
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        html, body {
+            height: 100%;
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+            margin: 0;
+        }
+        .content {
+            flex: 1 0 auto;
+        }
+        footer {
+            flex-shrink: 0;
+        }
+    </style>
+</head>
+<body>
+
+    {% include 'navbar.html' %}
+
+    <div class="content container my-5">
+        <h2 class="mb-4 text-center">🔗 Recommended Networking Groups and Events</h2>
+        <p class="text-center mb-5">
+            Based on your skills and industry, here are some networking opportunities to enhance your professional connections.
+        </p>
+
+        <div class="mb-4 text-center">
+            <strong>Skills:</strong> {{ user_skills }}<br>
+            <strong>Industry:</strong> {{ industry }}
+        </div>
+
+        {% if suggestions %}
+            <div class="list-group">
+                {% for suggestion in suggestions %}
+                    <div class="list-group-item">
+                        <h5>{{ suggestion.title }}</h5>
+                        <p>{{ suggestion.description|linebreaks }}</p>
+                        {% if suggestion.url %}
+                            <a href="{{ suggestion.url }}" target="_blank" class="btn btn-primary btn-sm">
+                                <i class="fas fa-external-link-alt"></i> Visit
+                            </a>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p>No suggestions found.</p>
+        {% endif %}
+
+        <div class="text-center mt-4">
+            <a href="{% url 'networking_opportunities:networking_opportunities_view' %}" class="btn btn-secondary">
+                <i class="fas fa-redo-alt"></i> Search Again
+            </a>
+        </div>
+
+        <div class="mt-5">
+            <h4 class="text-center mb-4">🌟 Benefits of Networking with Us</h4>
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="d-flex">
+                        <div class="me-3">
+                            <i class="fas fa-user-friends fa-2x text-primary"></i>
+                        </div>
+                        <div>
+                            <h5>Expand Your Network</h5>
+                            <p>Connect with professionals who share your interests and career goals.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="d-flex">
+                        <div class="me-3">
+                            <i class="fas fa-briefcase fa-2x text-primary"></i>
+                        </div>
+                        <div>
+                            <h5>Discover Opportunities</h5>
+                            <p>Learn about new job openings, collaborations, and industry events.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="d-flex">
+                        <div class="me-3">
+                            <i class="fas fa-chalkboard-teacher fa-2x text-primary"></i>
+                        </div>
+                        <div>
+                            <h5>Learn from Experts</h5>
+                            <p>Gain insights and advice from experienced professionals in your field.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="d-flex">
+                        <div class="me-3">
+                            <i class="fas fa-globe fa-2x text-primary"></i>
+                        </div>
+                        <div>
+                            <h5>Global Connections</h5>
+                            <p>Build relationships with professionals worldwide, expanding your horizons.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 
-    {% if suggestions %}
-        <ol>
-            {% for suggestion in suggestions %}
-                <li>{{ suggestion|linebreaks }}</li>
-            {% endfor %}
-        </ol>
-    {% else %}
-        <p>No suggestions found.</p>
-    {% endif %}
+    {% include 'footer.html' %}
 
-    <a href="{% url 'networking_opportunities:networking_opportunities_view' %}" class="btn btn-secondary mt-3">🔄 Search Again</a>
-</div>
-{% endblock %}
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+
+</body>
+</html>

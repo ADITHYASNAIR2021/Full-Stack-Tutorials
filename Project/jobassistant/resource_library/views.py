@@ -21,7 +21,7 @@ def resource_library_view(request):
         resources_list = Resource.objects.filter(title__icontains=query)
     else:
         resources_list = Resource.objects.all()
-    paginator = Paginator(resources_list, 10)  # Show 10 resources per page
+    paginator = Paginator(resources_list, 10) 
 
     page_number = request.GET.get('page')
     resources = paginator.get_page(page_number)

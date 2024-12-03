@@ -21,25 +21,21 @@ def generate_email(request):
             return redirect('email_generator:index')
 
         try:
-            # Extract job description
             job_description = extract_job_description(job_link)
             if not job_description:
                 messages.error(request, "Failed to extract job description.")
                 return redirect('email_generator:index')
 
-            # Extract requirements
             requirements = extract_requirements(job_description)
             if not requirements:
                 messages.error(request, "Failed to extract job requirements.")
                 return redirect('email_generator:index')
 
-            # Extract resume text
             resume_text = extract_text_from_pdf(resume_file)
             if not resume_text:
                 messages.error(request, "Failed to extract text from resume.")
                 return redirect('email_generator:index')
 
-            # Generate email
             email_text = create_email(job_description, requirements, resume_text)
             if email_text:
                 context = {

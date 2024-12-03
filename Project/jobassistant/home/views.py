@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.core.mail import send_mail  
 from django.conf import settings
+from django.contrib.auth import logout
 
 def landing_page(request):
     return render(request, 'home/index.html') 
@@ -25,3 +26,9 @@ def landing_page(request):
         return redirect('home:landing_page')
     return render(request, 'base.html')
 
+def logout_view(request):
+    if request.method == 'POST':
+        logout(request)
+        return redirect('home:landing_page')  # Redirect to your desired page after logout
+    else:
+        return render(request, 'registration/logout.html')

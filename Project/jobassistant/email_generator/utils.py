@@ -68,6 +68,9 @@ def create_email(job_description, requirements, resume_text):
     - **Body:** Highlight your relevant skills, projects, internships, and leadership experiences that align with the job requirements.
     - **Value Proposition:** Explain how your fresh perspective and recent academic knowledge can add value to the company.
     - **Closing:** Express enthusiasm for the opportunity, mention your willingness for an interview, and thank the recipient for their time.
+    - **Length:** Ensure the email is between 50-125 words.
+
+    **Please ensure that the email is within the specified word count while maintaining clarity and professionalism.**
     """
     try:
         response = llm.invoke(prompt)
