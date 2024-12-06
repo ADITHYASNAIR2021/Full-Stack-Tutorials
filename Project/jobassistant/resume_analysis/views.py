@@ -1,5 +1,5 @@
 import re
-import fitz  # PyMuPDF
+import fitz 
 import plotly.express as px
 import pandas as pd
 from django.shortcuts import render
@@ -7,6 +7,7 @@ from django.contrib import messages
 from django.conf import settings
 from langchain_groq import ChatGroq
 from .models import ResumeAnalysisResult
+from django.contrib.auth.decorators import login_required
 
 llm = ChatGroq(
     temperature=0,
@@ -18,7 +19,6 @@ def extract_text_from_pdf(pdf_file):
 
     text = ""
     try:
-        # Read the PDF file using PyMuPDF
         with fitz.open(stream=pdf_file.read(), filetype="pdf") as doc:
             for page in doc:
                 text += page.get_text()
@@ -90,7 +90,6 @@ def create_experience_timeline(resume_text):
     try:
         response = llm.invoke(prompt)
         table_text = response.content.strip()
-        # Parse the table_text to create a DataFrame
         data = []
         lines = table_text.strip().split('\n')
         for line in lines:
@@ -117,6 +116,7 @@ def create_experience_timeline(resume_text):
         print(f"Error creating experience timeline: {e}")
         return None
 
+@login_required
 def resume_analysis_view(request):
     if request.method == 'POST':
         uploaded_file = request.FILES.get('resume_file')
@@ -128,19 +128,14 @@ def resume_analysis_view(request):
             messages.error(request, "❌ Please upload a PDF file.")
             return render(request, 'resume_analysis/resume_analysis.html')
 
-        # Extract text from PDF
         resume_text = extract_text_from_pdf(uploaded_file)
         if not resume_text:
             messages.error(request, "❌ Failed to extract text from resume.")
             return render(request, 'resume_analysis/resume_analysis.html')
 
-        # Extract skills
         skills = extract_skills(resume_text)
-        # Suggest keywords
         keywords = suggest_keywords(resume_text)
-        # Generate skill distribution chart
         skill_chart_html = create_skill_distribution_chart(skills) if skills else None
-        # Generate experience timeline chart
         experience_timeline_html = create_experience_timeline(resume_text)
 
         
