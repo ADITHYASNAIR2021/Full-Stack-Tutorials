@@ -1,0 +1,82 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36" version="24.8.6">
+  <diagram name="File Structure" id="file_structure_diagram">
+    <mxGraphModel dx="1115" dy="608" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="2" value="OptiHire Project" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+          <mxGeometry x="400" y="20" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="3" value="jobassistant/" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" parent="1" vertex="1">
+          <mxGeometry x="100" y="120" width="140" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="4" value="__init__.py" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="3" vertex="1">
+          <mxGeometry x="20" y="60" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="5" value="settings.py" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="3" vertex="1">
+          <mxGeometry x="20" y="120" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="6" value="urls.py" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="3" vertex="1">
+          <mxGeometry x="20" y="180" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="7" value="wsgi.py" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="3" vertex="1">
+          <mxGeometry x="20" y="240" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="8" value="asgi.py" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="3" vertex="1">
+          <mxGeometry x="20" y="300" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="9" value="templates/" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
+          <mxGeometry x="390" y="130" width="140" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="10" value="navbar.html" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="9" vertex="1">
+          <mxGeometry x="20" y="60" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="11" value="footer.html" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="9" vertex="1">
+          <mxGeometry x="20" y="120" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="12" value="learning_paths/" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" parent="9" vertex="1">
+          <mxGeometry x="200" y="180" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="13" value="generate_learning_path.html" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="12" vertex="1">
+          <mxGeometry x="20" y="60" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="14" value="learning_path.html" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="12" vertex="1">
+          <mxGeometry x="20" y="120" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="15" value="cover_letter_generator/" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" parent="9" vertex="1">
+          <mxGeometry x="200" y="240" width="160" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="16" value="cover_letter_generator.html" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="15" vertex="1">
+          <mxGeometry x="20" y="60" width="160" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="17" value="static/" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+          <mxGeometry x="750" y="120" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="18" value="css/" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" parent="17" vertex="1">
+          <mxGeometry x="100" y="180" width="80" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="19" value="bootstrap.min.css" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="18" vertex="1">
+          <mxGeometry x="20" y="60" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="20" value="styles.css" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="18" vertex="1">
+          <mxGeometry x="20" y="120" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="21" value="js/" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" parent="17" vertex="1">
+          <mxGeometry x="100" y="240" width="80" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="22" value="bootstrap.bundle.min.js" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="21" vertex="1">
+          <mxGeometry x="20" y="60" width="160" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="23" value="manage.py" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
+          <mxGeometry x="345" y="450" width="80" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="24" value="requirements.txt" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
+          <mxGeometry x="480" y="460" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="25" value="vercel.json" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
+          <mxGeometry x="700" y="400" width="100" height="40" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

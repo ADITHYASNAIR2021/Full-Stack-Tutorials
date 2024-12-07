@@ -15,19 +15,6 @@
 <body>
     {% include 'navbar.html' %}
     {% include 'header.html' %}
-
-    {% if messages %}
-        {% for message in messages %}
-            <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
-                {{ message }}
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-        {% endfor %}
-    {% endif %}
-
-    {% block content %}
-    {% endblock %}
-
     {% include 'tools.html'%}
     {% include 'awards.html' %}
     {% include 'testimonials.html'%}

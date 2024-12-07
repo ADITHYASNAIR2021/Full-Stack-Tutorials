@@ -29,6 +29,6 @@ def landing_page(request):
 def logout_view(request):
     if request.method == 'POST':
         logout(request)
-        return redirect('home:landing_page')  # Redirect to your desired page after logout
+        return redirect('home:landing_page') 
     else:
         return render(request, 'registration/logout.html')

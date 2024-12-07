@@ -1,19 +1,7 @@
 from django.shortcuts import render
 from .models import Resource
-
-def resource_library_view(request):
-    resources = Resource.objects.all()
-    return render(request, 'resource_library/resource_library.html', {'resources': resources})
-
-def resource_library_view(request):
-    query = request.GET.get('q')
-    if query:
-        resources = Resource.objects.filter(title__icontains=query)
-    else:
-        resources = Resource.objects.all()
-    return render(request, 'resource_library/resource_library.html', {'resources': resources})
-
 from django.core.paginator import Paginator
+
 
 def resource_library_view(request):
     query = request.GET.get('q')

@@ -23,10 +23,8 @@ def networking_opportunities_view(request):
         Provide the suggestions in a numbered list format, including brief descriptions and links if available.
         """
         try:
-            # Invoke the LLM
             response = llm.invoke(prompt)
             suggestions = response.content.strip()
-            # Process the suggestions into a list
             suggestions_list = re.split(r'\n\d+\.', suggestions)
             suggestions_list = [s.strip() for s in suggestions_list if s.strip()]
             return render(request, 'networking_opportunities/networking_results.html', {

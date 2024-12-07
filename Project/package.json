@@ -1,5 +1,7 @@
 {
   "dependencies": {
-    "fa-icons": "^0.2.0"
+    "fa-icons": "^0.2.0",
+    "global": "^4.4.0",
+    "vercel": "^39.1.3"
   }
 }

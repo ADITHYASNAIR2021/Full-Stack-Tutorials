@@ -20,25 +20,21 @@ def generate_cover_letter_view(request):
             return redirect('cover_letter_generator:index')
 
         try:
-            # Extract job description
             job_description = extract_job_description(job_link)
             if not job_description:
                 messages.error(request, "Failed to extract job description.")
                 return redirect('cover_letter_generator:index')
 
-            # Extract requirements
             requirements = extract_requirements(job_description)
             if not requirements:
                 messages.error(request, "Failed to extract job requirements.")
                 return redirect('cover_letter_generator:index')
 
-            # Extract resume text
             resume_text = extract_text_from_pdf(resume_file)
             if not resume_text:
                 messages.error(request, "Failed to extract text from resume.")
                 return redirect('cover_letter_generator:index')
 
-            # Generate cover letter
             cover_letter_text = create_cover_letter(job_description, requirements, resume_text)
             if cover_letter_text:
                 context = {

@@ -10,10 +10,10 @@
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" rel="stylesheet">  
 </head>
-<body>
+<body class="d-flex flex-column min-vh-100">
 
     {% include 'navbar.html' %}
-
+    <main class="flex-fill">
     <div class="container my-5">
         <h2 class="mb-4 text-center">📝 Interview Preparation</h2>
         <p class="text-center mb-5">
@@ -40,6 +40,7 @@
             </div>
         </div>
     </div>
+</main>
 
     {% include 'footer.html' %}
 
